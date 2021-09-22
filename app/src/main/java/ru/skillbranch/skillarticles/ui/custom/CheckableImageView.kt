@@ -1,0 +1,43 @@
+package ru.skillbranch.skillarticles.ui.custom
+
+import android.content.Context
+import android.util.AttributeSet
+import android.view.View
+import android.widget.Checkable
+
+class CheckableImageView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : androidx.appcompat.widget.AppCompatImageView(context, attrs, defStyleAttr), Checkable, View.OnClickListener {
+
+    private var checked = false
+
+    init {
+        setOnClickListener(this)
+    }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState: IntArray = super.onCreateDrawableState(extraSpace + 1)
+        if (isChecked) View.mergeDrawableStates(drawableState, CHECKED_STATE_SET)
+        return drawableState
+    }
+
+    override fun setChecked(check: Boolean) {
+        if (checked == check) return
+        checked = check
+        refreshDrawableState()
+    }
+
+    override fun isChecked(): Boolean = checked
+
+    override fun toggle() {
+        checked = !checked
+    }
+
+    override fun onClick(v: View?) = toggle()
+
+    companion object {
+        private val CHECKED_STATE_SET = intArrayOf(android.R.attr.state_checked)
+    }
+}

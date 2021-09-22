@@ -1,4 +1,4 @@
-package ru.skillbranch.skillbranch
+package ru.skillbranch.skillarticles
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

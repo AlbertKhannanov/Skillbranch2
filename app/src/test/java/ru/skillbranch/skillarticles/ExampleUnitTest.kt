@@ -1,4 +1,4 @@
-package ru.skillbranch.skillbranch
+package ru.skillbranch.skillarticles
 
 import org.junit.Test
 

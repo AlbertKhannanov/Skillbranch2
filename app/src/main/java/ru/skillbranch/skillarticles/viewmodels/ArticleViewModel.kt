@@ -22,6 +22,9 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
                 category = article.category,
                 categoryIcon = article.categoryIcon,
                 date = article.date.format(),
+                author = article.author,
+                poster = article.poster,
+                content = article.content,
             )
         }
 
@@ -29,7 +32,7 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
             content ?: return@subscribeOnDataSource null
             state.copy(
                 isLoadingContent = false,
-                content = content
+                content = content,
             )
         }
 
@@ -37,7 +40,7 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
             info ?: return@subscribeOnDataSource null
             state.copy(
                 isBookmark = info.isBookmark,
-                isLike = info.isLike
+                isLike = info.isLike,
             )
         }
 
@@ -88,7 +91,7 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
         toggleLike()
 
         val msg =
-            if (currentState.isLike) Notify.TextMessage("Mark is Liked")
+            if (currentState.isLike) Notify.TextMessage("Mark is liked")
             else Notify.ActionMessage(
                 "Don`t like it anymore",
                 "No, still like it",

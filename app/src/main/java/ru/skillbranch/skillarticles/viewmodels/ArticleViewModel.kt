@@ -24,7 +24,7 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
                 date = article.date.format(),
                 author = article.author,
                 poster = article.poster,
-                content = article.content,
+                content = article.content
             )
         }
 
@@ -32,7 +32,7 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
             content ?: return@subscribeOnDataSource null
             state.copy(
                 isLoadingContent = false,
-                content = content,
+                content = content
             )
         }
 
@@ -40,7 +40,7 @@ class ArticleViewModel(private val articleId: String) : BaseViewModel<ArticleSta
             info ?: return@subscribeOnDataSource null
             state.copy(
                 isBookmark = info.isBookmark,
-                isLike = info.isLike,
+                isLike = info.isLike
             )
         }
 
@@ -145,5 +145,5 @@ data class ArticleState(
     val poster: String? = null,
     val content: List<Any> = emptyList(),
     val reviews: List<Any> = emptyList(),
-    val title: String? = null,
+    val title: String? = null
 )

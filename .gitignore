@@ -16,12 +16,3 @@
 /app/src/androidTest/
 .externalNativeBuild
 .cxx
-
-/build.gradle
-/gradlew.bat
-/settings.gradle
-/app/libs/
-/app/build.gradle
-/app/src/androidTest
-/app/src/main/res
-/app/proguard-rules.pro

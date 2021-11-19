@@ -1,4 +1,4 @@
-package ru.skillbranch.skillarticles.extensions.data
+package ru.skillbranch.skillarticles.extensions
 
 import ru.skillbranch.skillarticles.data.AppSettings
 import ru.skillbranch.skillarticles.data.ArticlePersonalInfo

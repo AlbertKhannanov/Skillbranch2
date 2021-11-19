@@ -23,7 +23,6 @@ class ViewBindingDelegate<T : ViewBinding>(
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
-        Log.i("asdfasdf", "create")
         if (viewBinding == null) {
             viewBinding = initializer(activity.layoutInflater)
         }
@@ -40,7 +39,8 @@ class ViewBindingDelegate<T : ViewBinding>(
 //    }
 
     override fun getValue(thisRef: AppCompatActivity, property: KProperty<*>): T {
-        if (viewBinding == null && thisRef.lifecycle.currentState != Lifecycle.State.DESTROYED) {
+//        if (viewBinding == null && thisRef.lifecycle.currentState != Lifecycle.State.DESTROYED) {
+        if (viewBinding == null) {
             viewBinding = initializer(thisRef.layoutInflater)
         }
 

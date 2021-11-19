@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
@@ -31,6 +32,7 @@ import ru.skillbranch.skillarticles.viewmodels.*
 
 class RootActivity : AppCompatActivity(), IArticleView {
 
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     var viewModelFactory: ViewModelProvider.Factory = ViewModelFactory(this, "0")
     private val viewModel: ArticleViewModel by viewModels { viewModelFactory }
     private val binding: ActivityRootBinding by viewBinding(ActivityRootBinding::inflate)
@@ -41,7 +43,9 @@ class RootActivity : AppCompatActivity(), IArticleView {
 
     private lateinit var searchView: SearchView
 
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val bgColor by AttrValue(R.attr.colorSecondary)
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val fgColor by AttrValue(R.attr.colorOnSecondary)
 
 

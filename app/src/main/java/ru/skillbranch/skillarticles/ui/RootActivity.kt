@@ -57,7 +57,7 @@ class RootActivity : AppCompatActivity(), IArticleView {
         setupSubmenu()
 
         viewModel.observeState(this, ::renderUi)
-        viewModel.observeSubState(this, ArticleState::toBottombarData, ::renderBottombar)
+        viewModel.observeSubState(this, ArticleState::toBottombarData, ::renderBotombar)
         viewModel.observeSubState(this, ArticleState::toSubmenuData, ::renderSubmenu)
 
         viewModel.observeNotifications(this) {
@@ -277,7 +277,7 @@ class RootActivity : AppCompatActivity(), IArticleView {
         binding.scroll.setMarginOptionally(bottom = dpToIntPx(0))
     }
 
-    override fun renderBottombar(data: BottombarData) {
+    override fun renderBotombar(data: BottombarData) {
         with(bottombarBinding) {
             btnSettings.isChecked = data.isShowMenu
             btnLike.isChecked = data.isLike
